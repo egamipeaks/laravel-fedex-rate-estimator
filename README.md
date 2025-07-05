@@ -1,61 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel FedEx Rate Estimator
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel application for tracking FedEx labels and running estimations on FedEx shipping rates. This application integrates with the FedEx API to provide real-time shipping rates, package tracking, and label management. It also includes a Filament admin panel for easy management of shipments and labels.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **FedEx Integration**: Connect to FedEx services for rate estimation and tracking
+- **Label Management**: Track and manage FedEx shipping labels with detailed metadata
+- **Rate Estimation**: Calculate shipping costs for different FedEx service types
+- **Package Tracking**: Real-time tracking of FedEx packages
+- **CSV Import**: Bulk import shipping data from CSV files
+- **Email Notifications**: Send import summaries and tracking updates via email
+- **Admin Panel**: Built with Filament for easy management of shipments and labels
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd laravel-fedex-rate-estimator
+   ```
 
-## Learning Laravel
+2. Install dependencies:
+   ```bash
+   composer install
+   npm install
+   
+   cd fexex-bot
+   npm install
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. Set up environment:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. Configure your FedEx API credentials in `.env`:
+   ```env
+    FEDEX_TRACKING_CLIENT_ID=<your-fedex-tracking-client-id>
+    FEDEX_TRACKING_CLIENT_SECRET=<your-fedex-tracking-client-id>
+    FEDEX_RATES_CLIENT_ID=<your-fedex-rates-client-id>
+    FEDEX_RATES_CLIENT_SECRET=<your-fedex-rates-client-secret>
+    FEDEX_REPORTS_EMAILS=<csv of emails>
+    FEDEX_MODE=<live|sandbox>
+    FEDEX_ACCOUNT_NUMBER=<your-fedex-account-number>
+    FEDEX_USERNAME=<your-fedex-username>
+    FEDEX_PASSWORD=<your-fedex-password>
+    NODE_LOCATION=<path-to-node>
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. Run migrations:
+   ```bash
+   php artisan migrate
+   ```
 
-## Laravel Sponsors
+6. Start the development server:
+   ```bash
+   composer run dev
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Usage
 
-### Premium Partners
+### Scheduled Job for Automatic Label Refresh
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+To automatically refresh FedEx labels and rate estimates on a schedule, add the following to your `routes/console.php` file:
 
-## Contributing
+```php
+Schedule::job(new RefreshFedexLabelsJob(FedexImportMode::SCHEDULED))
+    ->timezone('America/Chicago')
+    ->cron('0 7-16 * * 1-5');
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+This schedule will run the job every hour from 7 AM to 4 PM, Monday through Friday, in the America/Chicago timezone.
 
-## Code of Conduct
+### Manual Label Refresh via Admin Panel
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Navigate to the Filament admin panel at `/admin`
+2. Log in with your admin credentials
+3. Go to the FedEx Labels section
+4. Click the "Refresh Labels" button to manually import the latest labels and rate estimates
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
