@@ -123,4 +123,5 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'node_path' => env('NODE_LOCATION', '/usr/bin/node'),
 ];

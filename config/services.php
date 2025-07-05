@@ -14,6 +14,13 @@ return [
     |
     */
 
+    'mailgun' => [
+        'domain' => env('MAILGUN_DOMAIN'),
+        'secret' => env('MAILGUN_SECRET'),
+        'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+        'scheme' => 'https',
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
@@ -35,4 +42,23 @@ return [
         ],
     ],
 
+    'fedex' => [
+        'mode' => env('FEDEX_MODE', 'sandbox'),
+        'account_number' => env('FEDEX_ACCOUNT_NUMBER'),
+        'username' => env('FEDEX_USERNAME'),
+        'password' => env('FEDEX_PASSWORD'),
+
+        'tracking' => [
+            'client_id' => env('FEDEX_TRACKING_CLIENT_ID'),
+            'client_secret' => env('FEDEX_TRACKING_CLIENT_SECRET'),
+        ],
+
+        'rates' => [
+            'client_id' => env('FEDEX_RATES_CLIENT_ID'),
+            'client_secret' => env('FEDEX_RATES_CLIENT_SECRET'),
+        ],
+        'reports' => [
+            'email' => explode(',', env('FEDEX_REPORTS_EMAILS', '')),
+        ],
+    ],
 ];

@@ -1,0 +1,263 @@
+{
+    "transactionId": "23453ed5-3454-3a03-c7c3-6c234faaa090",
+    "output": {
+        "completeTrackResults": [
+            {
+                "trackingNumber": "234523452345",
+                "trackResults": [
+                    {
+                        "trackingNumberInfo": {
+                            "trackingNumber": "234523452345",
+                            "trackingNumberUniqueId": "23453~234234324333~FDEG",
+                            "carrierCode": "FDXG"
+                        },
+                        "additionalTrackingInfo": {
+                            "nickname": "",
+                            "packageIdentifiers": [
+                                {
+                                    "type": "GROUND_SHIPMENT_ID",
+                                    "values": [
+                                        "482325001001"
+                                    ],
+                                    "trackingNumberUniqueId": "",
+                                    "carrierCode": ""
+                                },
+                                {
+                                    "type": "CUSTOMER_REFERENCE",
+                                    "values": [
+                                        "COMP11233"
+                                    ],
+                                    "trackingNumberUniqueId": "",
+                                    "carrierCode": ""
+                                },
+                                {
+                                    "type": "PURCHASE_ORDER",
+                                    "values": [
+                                        "COMP11233"
+                                    ],
+                                    "trackingNumberUniqueId": "",
+                                    "carrierCode": ""
+                                },
+                                {
+                                    "type": "DEPARTMENT",
+                                    "values": [
+                                        "482325"
+                                    ],
+                                    "trackingNumberUniqueId": "",
+                                    "carrierCode": ""
+                                }
+                            ],
+                            "hasAssociatedShipments": false
+                        },
+                        "shipperInformation": {
+                            "contact": [],
+                            "address": {
+                                "city": "DENVER",
+                                "stateOrProvinceCode": "CO",
+                                "countryCode": "US",
+                                "residential": false,
+                                "countryName": "United States"
+                            }
+                        },
+                        "recipientInformation": {
+                            "contact": [],
+                            "address": {
+                                "city": "Tulsa",
+                                "stateOrProvinceCode": "OK",
+                                "countryCode": "US",
+                                "residential": false,
+                                "countryName": "United States"
+                            }
+                        },
+                        "latestStatusDetail": {
+                            "code": "PU",
+                            "derivedCode": "HP",
+                            "statusByLocale": "We have your package",
+                            "description": "Picked up",
+                            "scanLocation": {
+                                "city": "DENVER",
+                                "stateOrProvinceCode": "CO",
+                                "countryCode": "US",
+                                "residential": false,
+                                "countryName": "United States"
+                            }
+                        },
+                        "dateAndTimes": [
+                            {
+                                "type": "ACTUAL_PICKUP",
+                                "dateTime": "2025-05-09T00:00:00+00:00"
+                            },
+                            {
+                                "type": "SHIP",
+                                "dateTime": "2025-05-09T00:00:00+00:00"
+                            },
+                            {
+                                "type": "ACTUAL_TENDER",
+                                "dateTime": "2025-05-09T00:00:00+00:00"
+                            },
+                            {
+                                "type": "ANTICIPATED_TENDER",
+                                "dateTime": "2025-05-09T00:00:00+00:00"
+                            },
+                            {
+                                "type": "ESTIMATED_DELIVERY",
+                                "dateTime": "2025-05-12T00:00:00+00:00"
+                            }
+                        ],
+                        "availableImages": [],
+                        "packageDetails": {
+                            "packagingDescription": {
+                                "type": "YOUR_PACKAGING",
+                                "description": "Package"
+                            },
+                            "physicalPackagingType": "PACKAGE",
+                            "sequenceNumber": "1",
+                            "count": "1",
+                            "weightAndDimensions": {
+                                "weight": [
+                                    {
+                                        "value": "3.2",
+                                        "unit": "LB"
+                                    },
+                                    {
+                                        "value": "1.45",
+                                        "unit": "KG"
+                                    }
+                                ]
+                            },
+                            "packageContent": []
+                        },
+                        "shipmentDetails": {
+                            "possessionStatus": true
+                        },
+                        "scanEvents": [
+                            {
+                                "date": "2025-05-09T15:32:00-06:00",
+                                "eventType": "PU",
+                                "eventDescription": "Picked up",
+                                "exceptionCode": "",
+                                "exceptionDescription": "",
+                                "scanLocation": {
+                                    "streetLines": [
+                                        ""
+                                    ],
+                                    "city": "DENVER",
+                                    "stateOrProvinceCode": "CO",
+                                    "postalCode": "80229",
+                                    "countryCode": "US",
+                                    "residential": false,
+                                    "countryName": "United States"
+                                },
+                                "locationId": "0823",
+                                "locationType": "PICKUP_LOCATION",
+                                "derivedStatusCode": "PU",
+                                "derivedStatus": "Picked up"
+                            },
+                            {
+                                "date": "2025-05-09T09:22:00-06:00",
+                                "eventType": "OC",
+                                "eventDescription": "Shipment information sent to FedEx",
+                                "exceptionCode": "",
+                                "exceptionDescription": "",
+                                "scanLocation": {
+                                    "streetLines": [
+                                        ""
+                                    ],
+                                    "postalCode": "80223",
+                                    "countryCode": "US",
+                                    "residential": false,
+                                    "countryName": "United States"
+                                },
+                                "locationType": "CUSTOMER",
+                                "derivedStatusCode": "IN",
+                                "derivedStatus": "Label created"
+                            }
+                        ],
+                        "availableNotifications": [
+                            "ON_DELIVERY",
+                            "ON_EXCEPTION",
+                            "ON_ESTIMATED_DELIVERY"
+                        ],
+                        "deliveryDetails": {
+                            "deliveryAttempts": "0",
+                            "deliveryOptionEligibilityDetails": [
+                                {
+                                    "option": "INDIRECT_SIGNATURE_RELEASE",
+                                    "eligibility": "POSSIBLY_ELIGIBLE"
+                                },
+                                {
+                                    "option": "REDIRECT_TO_HOLD_AT_LOCATION",
+                                    "eligibility": "POSSIBLY_ELIGIBLE"
+                                },
+                                {
+                                    "option": "REROUTE",
+                                    "eligibility": "POSSIBLY_ELIGIBLE"
+                                },
+                                {
+                                    "option": "RESCHEDULE",
+                                    "eligibility": "POSSIBLY_ELIGIBLE"
+                                },
+                                {
+                                    "option": "RETURN_TO_SHIPPER",
+                                    "eligibility": "POSSIBLY_ELIGIBLE"
+                                },
+                                {
+                                    "option": "DISPUTE_DELIVERY",
+                                    "eligibility": "POSSIBLY_ELIGIBLE"
+                                },
+                                {
+                                    "option": "SUPPLEMENT_ADDRESS",
+                                    "eligibility": "INELIGIBLE"
+                                }
+                            ]
+                        },
+                        "originLocation": {
+                            "locationContactAndAddress": {
+                                "address": {
+                                    "city": "DENVER",
+                                    "stateOrProvinceCode": "CO",
+                                    "countryCode": "US",
+                                    "residential": false,
+                                    "countryName": "United States"
+                                }
+                            },
+                            "locationId": "0823"
+                        },
+                        "destinationLocation": {
+                            "locationContactAndAddress": {
+                                "address": {
+                                    "city": "Tulsa",
+                                    "stateOrProvinceCode": "OK",
+                                    "countryCode": "US",
+                                    "residential": false,
+                                    "countryName": "United States"
+                                }
+                            },
+                            "locationType": "FEDEX_GROUND_TERMINAL"
+                        },
+                        "lastUpdatedDestinationAddress": {
+                            "city": "TULSA",
+                            "stateOrProvinceCode": "OK",
+                            "countryCode": "US",
+                            "residential": false,
+                            "countryName": "United States"
+                        },
+                        "serviceDetail": {
+                            "type": "FEDEX_GROUND",
+                            "description": "FedEx Ground",
+                            "shortDescription": "FG"
+                        },
+                        "standardTransitTimeWindow": {
+                            "window": []
+                        },
+                        "estimatedDeliveryTimeWindow": {
+                            "window": []
+                        },
+                        "goodsClassificationCode": "",
+                        "returnDetail": []
+                    }
+                ]
+            }
+        ]
+    }
+}
